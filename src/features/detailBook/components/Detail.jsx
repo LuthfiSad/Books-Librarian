@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import datas from "@/core/utils/books.json";
 import axios from "axios";
 import { APP_CONFIG } from "@/core/configs/app";
+import { updateBook } from "@/core/services/books";
 
 const Detail = () => {
   const { id } = useParams();
@@ -45,10 +46,7 @@ const Detail = () => {
       localStorage.setItem("borrowedBooks", JSON.stringify(newBorrowedBooks));
       setBorrowedBooks(newBorrowedBooks);
 
-      await axios.put(
-        `http://localhost:5000/api/books/${book.id}`,
-        updatedBook
-      );
+      await updateBook(book.id, updatedBook);
     } catch (error) {
       setBook(book);
       localStorage.setItem("borrowedBooks", JSON.stringify(borrowedBooks));
@@ -73,10 +71,7 @@ const Detail = () => {
       setBorrowedBooks(newBorrowedBooks);
       localStorage.setItem("borrowedBooks", JSON.stringify(newBorrowedBooks));
 
-      await axios.put(
-        `${APP_CONFIG.BASE_URL}/api/books/${book.id}`,
-        updatedBook
-      );
+      await updateBook(book.id, updatedBook);
     } catch (error) {
       setBook(book);
       setBorrowedBooks(borrowedBooks);

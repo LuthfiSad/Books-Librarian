@@ -7,10 +7,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
-import donation1 from "@/core/assets/coba.png";
 import useResponsive from "@/features/global/hooks/useResponsive";
 
-import slider from "@/core/utils/slider.json"
+import slider from "@/core/utils/slider"
 
 const DonationSlider = () => {
   const { isTablet } = useResponsive();
@@ -33,7 +32,7 @@ const DonationSlider = () => {
           <SwiperSlide key={index}>
             <div className="flex flex-col mb-10 items-center">
               <img
-                src={donation1}
+                src={item.image}
                 alt="Dapat dipercaya"
                 className="rounded-lg w-[200px] h-[200px] object-cover mb-4"
               />

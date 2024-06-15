@@ -1,8 +1,10 @@
-[
+import imageTeam from "@/core/assets/coba.png";
+
+const teams = [
   {
     "nama": "Kocak",
     "bidang": "Front-End Developer",
-    "image": "/src/core/assets/coba.png",
+    "image": imageTeam,
     "sosialMedia": {
       "instagram": "link.com",
       "linkedin": "link.com"
@@ -11,7 +13,7 @@
   {
     "nama": "Ganteng",
     "bidang": "Back-End Developer",
-    "image": "/src/core/assets/coba.png",
+    "image": imageTeam,
     "sosialMedia": {
       "instagram": "link.com",
       "linkedin": "link.com"
@@ -20,7 +22,7 @@
   {
     "nama": "Cantik",
     "bidang": "Designer",
-    "image": "/src/core/assets/coba.png",
+    "image": imageTeam,
     "sosialMedia": {
       "instagram": "link.com",
       "linkedin": "link.com"
@@ -29,10 +31,12 @@
   {
     "nama": "Pintar",
     "bidang": "DevOps",
-    "image": "/src/core/assets/coba.png",
+    "image": imageTeam,
     "sosialMedia": {
       "instagram": "link.com",
       "linkedin": "link.com"
     }
   }
 ]
+
+export default teams

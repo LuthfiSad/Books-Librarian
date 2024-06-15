@@ -1,5 +1,32 @@
 {
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/core/server/api.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "vite.config.js",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "src/core/server/api.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
   ]
 }

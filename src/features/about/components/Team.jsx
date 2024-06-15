@@ -1,6 +1,6 @@
 import React from "react";
 import donation2 from "@/core/assets/coba.png";
-import team from "@/core/utils/teams.json";
+import team from "@/core/utils/teams";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 

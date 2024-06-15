@@ -5,6 +5,7 @@ import InputField from "@/features/global/components/Form/input";
 import defaultImage from "@/core/assets/no-image.jpg";
 import { APP_CONFIG } from "@/core/configs/app";
 import axios from "axios";
+import { donateBook } from "@/core/services/books";
 
 const BookDonationForm = () => {
   const formik = useFormik({
@@ -58,26 +59,21 @@ const BookDonationForm = () => {
         ),
     }),
 
-    onSubmit: (values) => {
+    onSubmit: async (values, { setSubmitting, resetForm }) => {
       if (!confirm("Are you sure you want to donate this book?")) {
         return;
       }
 
-      axios
-        .post(`${APP_CONFIG.BASE_URL}/api/books/donate`, values, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-        .then((response) => {
-          console.log(response.data);
-        })
-        .catch((error) => {
-          console.error(error);
-        })
-        .finally(() => {
-          formik.resetForm();
-        });
+      try {
+        await donateBook(values);
+        alert("Terima kasih atas donasi buku Anda!");
+        resetForm();
+      } catch (error) {
+        console.error("Error donating book:", error);
+        alert("Donasi buku gagal. Silakan coba lagi nanti.");
+      } finally {
+        setSubmitting(false);
+      }
     },
   });
 
