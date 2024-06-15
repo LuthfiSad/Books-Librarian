@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm:start\" \"node src/core/server/api.js\"",
+    "dev": "concurrently \"npm:start\" \"nodemon src/core/server/api.js\"",
     "start": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",

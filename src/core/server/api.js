@@ -17,6 +17,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const booksFilePath = join(__dirname, '../utils/books.json');
 
+// Middleware untuk melayani file statis dari direktori 'dist'
+app.use(express.static(join(__dirname, '../../../dist')));
 
 const getIndonesiaTime = () => {
   const timeZone = 'Asia/Jakarta';
@@ -75,6 +77,11 @@ app.post('/api/books/donate', async (req, res) => {
     console.error('Error adding book:', err);
     res.status(500).send('Error adding book');
   }
+});
+
+// Penanganan rute catch-all untuk aplikasi React
+app.get('*', (req, res) => {
+  res.sendFile(join(__dirname, '../../../dist/index.html'));
 });
 
 // Jalankan server di port 5000
