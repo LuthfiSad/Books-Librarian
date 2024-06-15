@@ -77,6 +77,10 @@ app.post('/api/books/donate', async (req, res) => {
   }
 });
 
+app.get('*', (req, res) => {
+  res.status(404).send('Page not found');
+});
+
 // Jalankan server di port 5000
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
