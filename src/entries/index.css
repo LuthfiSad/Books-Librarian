@@ -1,0 +1,24 @@
+html{
+  scroll-behavior: smooth;
+}
+
+* {
+  scroll-margin-top: 70px;
+}
+
+body {
+  background-color: rgb(240, 240, 240);
+  font-family: "montserrat", sans-serif;
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    font-size: 90%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  :root {
+    font-size: 80%;
+  }
+}

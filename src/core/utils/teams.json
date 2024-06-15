@@ -1,0 +1,38 @@
+[
+  {
+    "nama": "Kocak",
+    "bidang": "Front-End Developer",
+    "image": "/src/core/assets/coba.png",
+    "sosialMedia": {
+      "instagram": "link.com",
+      "linkedin": "link.com"
+    }
+  },
+  {
+    "nama": "Ganteng",
+    "bidang": "Back-End Developer",
+    "image": "/src/core/assets/coba.png",
+    "sosialMedia": {
+      "instagram": "link.com",
+      "linkedin": "link.com"
+    }
+  },
+  {
+    "nama": "Cantik",
+    "bidang": "Designer",
+    "image": "/src/core/assets/coba.png",
+    "sosialMedia": {
+      "instagram": "link.com",
+      "linkedin": "link.com"
+    }
+  },
+  {
+    "nama": "Pintar",
+    "bidang": "DevOps",
+    "image": "/src/core/assets/coba.png",
+    "sosialMedia": {
+      "instagram": "link.com",
+      "linkedin": "link.com"
+    }
+  }
+]
