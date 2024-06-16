@@ -9,19 +9,19 @@ const Team = () => {
     <div className="flex justify-center py-20 items-center">
       <div className="flex flex-col gap-10 text-center">
         <h1 className="text-5xl font-bold">Team Kami</h1>
-        <div className="flex flex-wrap justify-center gap-5">
+        <div className="flex flex-wrap justify-center gap-10">
           {team.map((item, index) => (
             <div
-              className="flex flex-col justify-items-center mb-10 items-center max-w-[200px]"
+              className="flex flex-col justify-items-center mb-10 items-center w-[180px]"
               key={index}
             >
               <img
                 draggable="false"
                 src={item.image}
                 alt="Dapat dipercaya"
-                className="rounded-full w-full h-[200px] object-cover mb-4"
+                className="rounded-full w-full h-[180px] object-cover mb-4"
               />
-              <h3 className="text-xl text-center font-bold break-all line-clamp-2">
+              <h3 className="text-xl text-center font-bold break-words line-clamp-2">
                 {item.nama}
               </h3>
               <p className="text-center text-sm">{item.bidang}</p>
