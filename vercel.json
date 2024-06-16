@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ],
+  "env": {
+    "LIB_APP_NAME": "E-Perpus",
+    "LIB_BASE_URL": "https://api-books-fs-express-jsonfile.vercel.app"
+  }
+}
