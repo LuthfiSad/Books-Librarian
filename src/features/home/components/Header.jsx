@@ -6,6 +6,14 @@ import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigator = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const search = e.target.search.value;
+    if (search.length < 3 && search !== "") return alert("Minimal 3 karakter");
+    navigator(`/books?search=${search}`);
+  };
+
   return (
     <TopSection
       as="header"
@@ -25,7 +33,7 @@ const Header = () => {
           </p>
           <form
             className="flex gap-1 items-center"
-            onSubmit={(e) => navigator(`/books?search=${e.target.search.value}`)}
+            onSubmit={handleSearch}
           >
             <input
               placeholder="Cari..."

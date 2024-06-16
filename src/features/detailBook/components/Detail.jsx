@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import datas from "@/core/utils/books.json";
-import axios from "axios";
-import { APP_CONFIG } from "@/core/configs/app";
-import { updateBook } from "@/core/services/books";
+
+import { getBooks, updateBook } from "@/core/services/books";
 
 const Detail = () => {
   const { id } = useParams();
@@ -13,12 +11,15 @@ const Detail = () => {
   const navigator = useNavigate();
 
   useEffect(() => {
-    const book = datas.find((b) => b.id === Number(id));
-    if (!book) {
-      alert("Book not found.");
-      navigator("/books");
-    }
-    setBook(book);
+    getBooks().then((res) => {
+      const book = res.find((b) => b.id === Number(id));
+
+      if (!book) {
+        alert("Book not found.");
+        navigator("/books");
+      }
+      setBook(book);
+    });
 
     const localBorrowedBooks =
       JSON.parse(localStorage.getItem("borrowedBooks")) || [];

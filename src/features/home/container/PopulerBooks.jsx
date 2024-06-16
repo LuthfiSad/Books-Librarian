@@ -1,19 +1,25 @@
-import books from "@/core/assets/buku1.png";
-import Card from "@/features/global/components/Card";
+import { getBooks } from "@/core/services/books";
 import ListBooks from "@/features/global/container/ListBooks";
-import datas from "@/core/utils/books.json";
 import useResponsive from "@/features/global/hooks/useResponsive";
 import { useEffect, useState } from "react";
 
 const PopulerBooks = () => {
+  const [data, setData] = useState([]);
   const [limit, setLimit] = useState(8);
-  const { isLaptop, isMobile, isTablet } = useResponsive();
+  const { isLaptop, isMobile } = useResponsive();
   const sortedData = [
-    ...datas
+    ...data
       .filter((item) => item.borrowCount !== item.booksCount)
       .sort((a, b) => b.borrowCount - a.borrowCount),
-    ...datas.filter((item) => item.borrowCount === item.booksCount),
+    ...data.filter((item) => item.borrowCount === item.booksCount),
   ];
+
+  useEffect(() => {
+    getBooks().then((res) => {
+      setData(res);
+    });
+  }, []);
+
   useEffect(() => {
     if (isMobile) {
       setLimit(4);

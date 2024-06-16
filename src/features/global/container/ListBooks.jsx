@@ -1,5 +1,4 @@
 import Card from "@/features/global/components/Card";
-import books from "@/core/assets/buku1.png";
 import { Link } from "react-router-dom";
 
 const ListBooks = ({ list }) => {
